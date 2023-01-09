@@ -1,17 +1,26 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  useNextSeoProps() {
+    const { route } = useRouter()
+    if (route !== '/') {
+      return {
+        titleTemplate: '%s – Docs LoArt & Dev'
+      }
+    }
+  },
+  logo: <span>Docs - LoArt & Dev</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/SimonLopezJara/Docs-LoArtDev',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discord.gg/fzANSPZvCh',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/SimonLopezJara/Docs-LoArtDev/tree/main',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Docs - LoArt & Dev',
   },
 }
 
